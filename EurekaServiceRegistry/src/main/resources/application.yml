@@ -1,0 +1,64 @@
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+server:
+  port: 8761
+
+  
+  
+---
+
+spring:
+  config:
+    activate:
+      on-profile: eureka1 
+ 
+server:
+  port: 5002
+eureka:
+  instance:
+    hostname: eureka1
+    appname: eone
+  client:
+    fetch-registry: true
+    register-with-eureka: false
+    serviceUrl:
+         defaultZone: http://eureka2:5003/eureka,http://eureka3:5004/eureka
+---
+spring:
+  config:
+    activate:
+      on-profile: eureka2 
+ 
+server:
+  port: 5003
+eureka:
+  instance:
+    hostname: eureka2
+    appname: etwo
+  client:
+    fetch-registry: true
+    register-with-eureka: false
+    serviceUrl:
+         defaultZone: http://eureka1:5002/eureka,http://eureka3:5004/eureka
+         
+---
+spring:
+  config:
+    activate:
+      on-profile: eureka3 
+ 
+server:
+  port: 5004
+eureka:
+  instance:
+    hostname: eureka3
+    appname: ethree
+  client:
+    fetch-registry: true
+    register-with-eureka: false
+    serviceUrl:
+         defaultZone: http://eureka1:5002/eureka,http://eureka2:5003/eureka         
+         
+         
