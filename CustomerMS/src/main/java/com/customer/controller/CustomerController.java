@@ -55,7 +55,9 @@ public class CustomerController {
             return ResponseEntity.notFound().build();
         }
     }
+    
 //	  @CrossOrigin(origins = "http://localhost:3000")
+    
     @GetMapping("/getAll")
     public ResponseEntity<List<Customer>> getAllCustomers() {
         List<Customer> customers = customerService.getAllCustomers();

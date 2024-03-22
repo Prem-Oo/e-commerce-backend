@@ -47,7 +47,7 @@ import com.shopping.serviceModels.Product;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/shoppingservice")
 public class ShoppingController {
